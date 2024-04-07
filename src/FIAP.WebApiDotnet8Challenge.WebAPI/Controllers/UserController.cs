@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using FIAP.WebApiDotnet8Challenge.Domain.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +5,7 @@ namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 
 [Authorize]
 [Route("api/[controller]")]
-public class ProductController : ControllerBase
+public class UserController : ControllerBase
 {
     [HttpGet]
     public IActionResult GetAll()
@@ -21,13 +19,8 @@ public class ProductController : ControllerBase
         return Ok();
     }
     
-    /// <summary>
-    /// Resource to create a new product
-    /// </summary>
-    /// <param name="request"> data about a new product </param>
-    /// <returns> return ok when inserted successful </returns>
     [HttpPost]
-    public IActionResult Create([FromBody] [Required] ProductPostRequest request)
+    public IActionResult Create()
     {
         return Ok();
     }
