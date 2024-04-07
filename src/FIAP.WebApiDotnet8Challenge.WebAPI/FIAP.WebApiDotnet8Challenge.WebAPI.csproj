@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <InvariantGlobalization>true</InvariantGlobalization>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,4 +13,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Application\FIAP.WebApiDotnet8Challenge.Application.csproj" />
+      <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Domain\FIAP.WebApiDotnet8Challenge.Domain.csproj" />
+    </ItemGroup>
 </Project>
