@@ -1,14 +1,27 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using FIAP.WebApiDotnet8Challenge.Domain.Request;
 using Microsoft.IdentityModel.Tokens;
 
 namespace FIAP.WebApiDotnet8Challenge.Application;
 
 public class TokenService : ITokenService
 {
-    public string GetToken()
+    private readonly IUserService _userService;
+
+    public TokenService(IUserService userService)
     {
+        _userService = userService;
+    }
+
+    public string? GetToken(TokenPostRequest request)
+    {
+        if (!_userService.UserAuthenticator(request.UserName!, request.Password!))
+        {
+            return null;
+        }
+        
         var tokenHandler = new JwtSecurityTokenHandler(); 
         
         var tokenKey = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("TOKEN_SECRET_KEY") 

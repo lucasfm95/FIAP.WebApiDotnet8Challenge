@@ -13,12 +13,12 @@ public class TokenController(ITokenService tokenService) : ControllerBase
     [HttpPost]
     public IActionResult GenerateToken([FromBody][Required] TokenPostRequest request)
     {
-        if (!request.UserName!.Equals("Lucas") && request.Password!.Equals("password"))
+        var token = tokenService.GetToken(request);
+
+        if (token == null)
         {
             return Unauthorized();
         }
-
-        var token = tokenService.GetToken();
 
         return Ok(token);
     }

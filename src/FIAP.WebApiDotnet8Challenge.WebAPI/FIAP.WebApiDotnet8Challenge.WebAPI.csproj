@@ -16,5 +16,6 @@
     <ItemGroup>
       <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Application\FIAP.WebApiDotnet8Challenge.Application.csproj" />
       <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Domain\FIAP.WebApiDotnet8Challenge.Domain.csproj" />
+      <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Persitence\FIAP.WebApiDotnet8Challenge.Persitence.csproj" />
     </ItemGroup>
 </Project>

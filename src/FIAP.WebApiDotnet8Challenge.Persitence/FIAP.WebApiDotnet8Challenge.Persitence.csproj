@@ -8,4 +8,8 @@
         <RootNamespace>FIAP.WebApiDotnet8Challenge.Repositories</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\FIAP.WebApiDotnet8Challenge.Application\FIAP.WebApiDotnet8Challenge.Application.csproj" />
+    </ItemGroup>
+
 </Project>
