@@ -1,3 +1,4 @@
+using FIAP.WebApiDotnet8Challenge.Application;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,19 @@ namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
+    private readonly UserService _userService;
+
+    public UserController(UserService userService)
+    {
+        _userService = userService;
+    }
+
     [HttpGet]
     public IActionResult GetAll()
     {
-        return Ok();
+        var users = _userService.GetAll();
+        
+        return Ok(users);
     }
     
     [HttpGet("{id}")]
@@ -22,6 +32,7 @@ public class UserController : ControllerBase
     [HttpPost]
     public IActionResult Create()
     {
+        //_userService.AddUser();
         return Ok();
     }
     
