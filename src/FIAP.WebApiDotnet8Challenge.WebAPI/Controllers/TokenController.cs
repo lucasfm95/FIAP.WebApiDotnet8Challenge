@@ -11,7 +11,7 @@ namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 public class TokenController(ITokenService tokenService) : ControllerBase
 {
     [HttpPost]
-    public IActionResult GenerateToken([FromBody][Required] TokenPostRequest request)
+    public IActionResult GenerateToken([FromBody, Required] TokenPostRequest request)
     {
         var token = tokenService.GetToken(request);
 

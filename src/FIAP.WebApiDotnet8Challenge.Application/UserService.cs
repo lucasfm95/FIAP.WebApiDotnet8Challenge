@@ -1,4 +1,5 @@
 using FIAP.WebApiDotnet8Challenge.Domain;
+using FIAP.WebApiDotnet8Challenge.Domain.Request;
 
 namespace FIAP.WebApiDotnet8Challenge.Application;
 
@@ -33,13 +34,30 @@ public class UserService : IUserService
         return _userRepository.GetUserByUserName(userName);
     }
 
-    public User AddUser(User user)
+    public User AddUser(UserPostRequest request)
     {
+        var user = new User
+        {
+            Name = request.Name!,
+            UserName = request.UserName!.ToLower(),
+            Password = request.Password!,
+            PermissionLevel = request.PermissionLevel
+        };
+        
         return _userRepository.AddUser(user);
     }
 
-    public bool UpdateUser(User user)
+    public bool UpdateUser(string userName, UserPutRequest request)
     {
+        var user = _userRepository.GetUserByUserName(userName);
+        
+        if (user == null)
+        {
+            return false;
+        }
+        
+        user.Password = request.Password!;
+        
         return _userRepository.UpdateUser(user);
     }
 

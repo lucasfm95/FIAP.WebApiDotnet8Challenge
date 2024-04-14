@@ -27,7 +27,7 @@ public class ProductController : ControllerBase
     /// <param name="request"> data about a new product </param>
     /// <returns> return ok when inserted successful </returns>
     [HttpPost]
-    public IActionResult Create([FromBody] [Required] ProductPostRequest request)
+    public IActionResult Create([FromBody, Required] ProductPostRequest request)
     {
         return Ok();
     }

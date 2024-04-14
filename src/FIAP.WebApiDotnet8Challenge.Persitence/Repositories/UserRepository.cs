@@ -9,7 +9,7 @@ public class UserRepository : IUserRepository
     {
         new()
         {
-            Name = "admin",
+            Name = "Administrator",
             UserName = "admin",
             Password = "admin",
             PermissionLevel = ePermissionLevel.Administrator
@@ -30,7 +30,7 @@ public class UserRepository : IUserRepository
 
     public User? GetUserByUserName(string userName)
     {
-        return _users.FirstOrDefault(user => user.UserName == userName);
+        return _users.FirstOrDefault(user => user.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase));
     }
 
     public User AddUser(User user)
@@ -41,7 +41,7 @@ public class UserRepository : IUserRepository
 
     public bool UpdateUser(User user)
     {
-        var userIndex = _users.FindIndex(u => u.UserName == user.UserName);
+        var userIndex = _users.FindIndex(u => u.UserName.Equals(u.UserName, StringComparison.InvariantCultureIgnoreCase));
         if (userIndex == -1)
         {
             return false;
@@ -53,7 +53,7 @@ public class UserRepository : IUserRepository
 
     public bool DeleteUser(string userName)
     {
-        var userIndex = _users.FindIndex(u => u.UserName == userName);
+        var userIndex = _users.FindIndex(u => u.UserName.Equals(u.UserName, StringComparison.InvariantCultureIgnoreCase));
         if (userIndex == -1)
         {
             return false;
