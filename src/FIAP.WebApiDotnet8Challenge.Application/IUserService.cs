@@ -5,7 +5,7 @@ namespace FIAP.WebApiDotnet8Challenge.Application;
 public interface IUserService
 {
     public List<User> GetAll();
-    public bool UserAuthenticator(string userName, string password);
+    public User? UserAuthenticator(string userName, string password);
     public User? GetUserByUserName(string userName);
     public User AddUser(User user);
     public bool UpdateUser(User user);

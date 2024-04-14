@@ -16,16 +16,16 @@ public class UserService : IUserService
         return _userRepository.FindAll();
     }
 
-    public bool UserAuthenticator(string userName, string password)
+    public User? UserAuthenticator(string userName, string password)
     {
         var user = _userRepository.GetUserByUserName(userName);
 
         if (user != null && user.Password == password)
         {
-            return true;
+            return user;
         }
         
-        return false;
+        return null;
     }
 
     public User? GetUserByUserName(string userName)

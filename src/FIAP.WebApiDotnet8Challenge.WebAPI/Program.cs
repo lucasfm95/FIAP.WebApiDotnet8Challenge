@@ -1,6 +1,6 @@
 using System.Text;
-using FIAP.WebApiDotnet8Challenge.Application;
 using FIAP.WebApiDotnet8Challenge.WebAPI.IoC;
+using FIAP.WebApiDotnet8Challenge.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -60,5 +60,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();

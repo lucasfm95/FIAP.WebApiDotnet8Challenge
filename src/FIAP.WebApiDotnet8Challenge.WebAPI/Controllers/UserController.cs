@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 
-[Authorize]
+[Authorize(Roles = "Administrator")]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {
-    private readonly UserService _userService;
+    private readonly IUserService _userService;
 
-    public UserController(UserService userService)
+    public UserController(IUserService userService)
     {
         _userService = userService;
     }

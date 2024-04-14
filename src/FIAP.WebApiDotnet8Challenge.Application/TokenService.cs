@@ -17,7 +17,9 @@ public class TokenService : ITokenService
 
     public string? GetToken(TokenPostRequest request)
     {
-        if (!_userService.UserAuthenticator(request.UserName!, request.Password!))
+        var user = _userService.UserAuthenticator(request.UserName!, request.Password!);
+        
+        if (user == null)
         {
             return null;
         }
@@ -31,10 +33,8 @@ public class TokenService : ITokenService
         {
             Subject = new ClaimsIdentity(new Claim[]
             {
-                // new Claim(ClaimTypes.Name, usuario.Username),
-                // new Claim(ClaimTypes.Role, (usuario.PermissaoSistema - 1).ToString()),
-                new Claim("ClaimPersonalizada_1", "Nossa claim 1"),
-                new Claim("ClaimPersonalizada_2", "Nossa claim 2")
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Role, user.PermissionLevel.ToString())
             }),
             Expires = DateTime.UtcNow.AddHours(1), 
             SigningCredentials = new SigningCredentials(
@@ -43,6 +43,6 @@ public class TokenService : ITokenService
         };
         
         var token = tokenHandler.CreateToken(tokenProperties);
-        return tokenHandler.WriteToken(token);
+        return $"Bearer {tokenHandler.WriteToken(token)}";
     }
 }

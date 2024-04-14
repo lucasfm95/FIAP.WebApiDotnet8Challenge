@@ -9,9 +9,17 @@ public class UserRepository : IUserRepository
     {
         new()
         {
-            Name = "Lucas",
-            UserName = "lucas",
-            Password = "123456"
+            Name = "admin",
+            UserName = "admin",
+            Password = "admin",
+            PermissionLevel = ePermissionLevel.Administrator
+        },
+        new()
+        {
+            Name = "Operator",
+            UserName = "operator",
+            Password = "operator",
+            PermissionLevel = ePermissionLevel.Operator
         }
     };
 
