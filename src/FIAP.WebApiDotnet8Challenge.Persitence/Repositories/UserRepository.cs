@@ -41,7 +41,7 @@ public class UserRepository : IUserRepository
 
     public bool UpdateUser(User user)
     {
-        var userIndex = _users.FindIndex(u => u.UserName.Equals(u.UserName, StringComparison.InvariantCultureIgnoreCase));
+        var userIndex = _users.FindIndex(u => u.UserName.Equals(user.UserName, StringComparison.InvariantCultureIgnoreCase));
         if (userIndex == -1)
         {
             return false;
@@ -53,7 +53,7 @@ public class UserRepository : IUserRepository
 
     public bool DeleteUser(string userName)
     {
-        var userIndex = _users.FindIndex(u => u.UserName.Equals(u.UserName, StringComparison.InvariantCultureIgnoreCase));
+        var userIndex = _users.FindIndex(u => u.UserName.Equals(userName, StringComparison.InvariantCultureIgnoreCase));
         if (userIndex == -1)
         {
             return false;
