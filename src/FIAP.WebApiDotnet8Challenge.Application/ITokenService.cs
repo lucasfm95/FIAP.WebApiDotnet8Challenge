@@ -1,6 +1,8 @@
+using FIAP.WebApiDotnet8Challenge.Domain.Request;
+
 namespace FIAP.WebApiDotnet8Challenge.Application;
 
 public interface ITokenService
 {
-    string GetToken();
+    public string? GetToken(TokenPostRequest request);
 }

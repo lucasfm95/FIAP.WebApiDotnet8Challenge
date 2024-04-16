@@ -1,6 +1,8 @@
 using System.Text;
-using FIAP.WebApiDotnet8Challenge.Application;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using FIAP.WebApiDotnet8Challenge.WebAPI.IoC;
+using FIAP.WebApiDotnet8Challenge.WebAPI.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -29,7 +31,7 @@ builder.Services.AddAuthentication(configureOptions =>
     });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)) );
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Product CRUD API", Version = "v1" });
@@ -45,7 +47,8 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
 
-builder.Services.AddTransient<ITokenService, TokenService>();
+builder.Services.AddServices();
+builder.Services.AddRepositories();
 
 var app = builder.Build();
 
@@ -59,5 +62,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.Run();
