@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 
-//[Authorize(Roles = "Administrator")]
+[Authorize(Roles = "Administrator")]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
 {

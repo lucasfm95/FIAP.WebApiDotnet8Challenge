@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace FIAP.WebApiDotnet8Challenge.WebAPI.IoC;
+namespace FIAP.WebApiDotnet8Challenge.WebAPI.Configurations;
 
 internal class SecurityRequirementsOperationFilter : IOperationFilter
 {

@@ -1,7 +1,7 @@
 using FIAP.WebApiDotnet8Challenge.Application;
 using FIAP.WebApiDotnet8Challenge.Repositories.Repositories;
 
-namespace FIAP.WebApiDotnet8Challenge.WebAPI.IoC;
+namespace FIAP.WebApiDotnet8Challenge.WebAPI.Configurations.IoC;
 
 public static class DependenciesInjections
 {
