@@ -11,4 +11,4 @@ COPY --from=build /app/published-app /app
 ENV ASPNETCORE_ENVIRONMENT=production
 EXPOSE 80
 
-ENTRYPOINT [ "dotnet", "/app/RegistryApi.dll" ]
+ENTRYPOINT [ "dotnet", "/app/FIAP.WebApiDotnet8Challenge.WebAPI.dll" ]
