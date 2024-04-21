@@ -9,6 +9,8 @@ WORKDIR /app
 COPY --from=build /app/published-app /app
 
 ENV ASPNETCORE_ENVIRONMENT=production
+ENV TOKEN_SECRET_KEY="DALKSJDALKSDJNALSDNJASDJLASKDJASKDJBNASDKJSAD",
+ENV ASPNETCORE_HTTP_PORTS=80,
 EXPOSE 80
 
-ENTRYPOINT [ "dotnet", "/app/FIAP.WebApiDotnet8Challenge.WebAPI.dll" ]
+ENTRYPOINT [ "dotnet", "/app/Api.dll" ]
