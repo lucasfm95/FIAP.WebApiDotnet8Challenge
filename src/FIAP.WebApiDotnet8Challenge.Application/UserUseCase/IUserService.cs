@@ -1,7 +1,7 @@
 using FIAP.WebApiDotnet8Challenge.Domain;
 using FIAP.WebApiDotnet8Challenge.Domain.Request;
 
-namespace FIAP.WebApiDotnet8Challenge.Application;
+namespace FIAP.WebApiDotnet8Challenge.Application.UserUseCase;
 
 public interface IUserService
 {

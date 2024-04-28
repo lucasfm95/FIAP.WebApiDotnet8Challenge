@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using FIAP.WebApiDotnet8Challenge.Application;
+using FIAP.WebApiDotnet8Challenge.Application.Token;
 using FIAP.WebApiDotnet8Challenge.Domain.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

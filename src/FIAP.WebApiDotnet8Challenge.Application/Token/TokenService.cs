@@ -1,10 +1,11 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using FIAP.WebApiDotnet8Challenge.Application.UserUseCase;
 using FIAP.WebApiDotnet8Challenge.Domain.Request;
 using Microsoft.IdentityModel.Tokens;
 
-namespace FIAP.WebApiDotnet8Challenge.Application;
+namespace FIAP.WebApiDotnet8Challenge.Application.Token;
 
 public class TokenService : ITokenService
 {

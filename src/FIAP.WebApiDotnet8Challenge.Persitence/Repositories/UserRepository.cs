@@ -1,4 +1,4 @@
-using FIAP.WebApiDotnet8Challenge.Application;
+using FIAP.WebApiDotnet8Challenge.Application.UserUseCase;
 using FIAP.WebApiDotnet8Challenge.Domain;
 
 namespace FIAP.WebApiDotnet8Challenge.Repositories.Repositories;

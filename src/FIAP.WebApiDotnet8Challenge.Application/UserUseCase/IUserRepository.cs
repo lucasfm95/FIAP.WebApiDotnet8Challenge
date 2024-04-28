@@ -1,6 +1,6 @@
 using FIAP.WebApiDotnet8Challenge.Domain;
 
-namespace FIAP.WebApiDotnet8Challenge.Application;
+namespace FIAP.WebApiDotnet8Challenge.Application.UserUseCase;
 
 public interface IUserRepository
 {

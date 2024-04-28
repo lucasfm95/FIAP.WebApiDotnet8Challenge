@@ -9,6 +9,7 @@ builder.Services.AddControllers().JsonConfigation();
 builder.Services.AddSwagger();
 builder.Services.AddServices();
 builder.Services.AddRepositories();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 app.UseSwagger();
@@ -17,5 +18,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseHealthcheck();
 app.UseMiddleware<ExceptionMiddleware>();
 app.Run();

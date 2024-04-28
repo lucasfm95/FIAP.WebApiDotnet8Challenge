@@ -1,18 +1,25 @@
 using System.ComponentModel.DataAnnotations;
+using FIAP.WebApiDotnet8Challenge.Application.ProductUseCase;
 using FIAP.WebApiDotnet8Challenge.Domain.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FIAP.WebApiDotnet8Challenge.WebAPI.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
 {
+    private readonly IProductService _productService;
+
+    public ProductController(IProductService productService)
+    {
+        _productService = productService;
+    }
+
     [HttpGet]
     public IActionResult GetAll()
     {
-        return Ok();
+        return Ok(_productService.GetAll());
     }
     
     [HttpGet("{id}")]
